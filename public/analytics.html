@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaptopPrice | Laptop Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="logo">
+            <i class="fas fa-laptop"></i>
+            Laptop<span>Price</span>
+        </a>
+
+        <ul class="nav-links-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Predict Price</a></li>
+            <li><a href="analytics.html" class="active">Laptop Guide</a></li>
+            <li><a href="about.html">About Project</a></li>
+        </ul>
+
+        <div class="header-tag">
+            <span class="status-dot"></span>
+            AI Prediction System
+        </div>
+    </header>
+
+    <main class="single-page-container">
+
+        <div class="content-card">
+            <h2>Which laptop is right for you?</h2>
+            <p>Start with what you will use it for, then match the specs. Pick your use below to see the minimum and the recommended setup.</p>
+        </div>
+
+        <!-- Use-case picker -->
+        <div class="content-card">
+            <h2>What will you use it for?</h2>
+            <div class="tabs" role="tablist" id="use-tabs"></div>
+
+            <p id="use-summary" class="use-summary"></p>
+
+            <div class="table-wrap">
+                <table class="spec-table">
+                    <thead>
+                        <tr><th>Part</th><th>Minimum</th><th>Recommended</th></tr>
+                    </thead>
+                    <tbody id="spec-body"></tbody>
+                </table>
+            </div>
+
+            <p id="use-tip" class="use-tip"></p>
+        </div>
+
+        <!-- Laptop types -->
+        <div class="content-card">
+            <h2>Types of laptops</h2>
+            <p>Each type is built for a different job. Here is what sets them apart.</p>
+
+            <div class="guide-grid">
+                <div class="type-card">
+                    <i class="fas fa-feather-alt"></i>
+                    <h3>Ultrabook</h3>
+                    <p>Thin, light, long battery life. Good for students and people who carry their laptop all day.</p>
+                    <small>Trade-off: weak graphics, harder to upgrade.</small>
+                </div>
+                <div class="type-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gaming</h3>
+                    <p>Powerful processor and a dedicated graphics card, with a fast screen and strong cooling.</p>
+                    <small>Trade-off: heavy, loud, short battery life.</small>
+                </div>
+                <div class="type-card">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h3>Workstation / Creator</h3>
+                    <p>Made for 3D, CAD, video editing and design. Accurate screen and a strong GPU.</p>
+                    <small>Trade-off: expensive and bulky.</small>
+                </div>
+                <div class="type-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Business</h3>
+                    <p>Durable body, good keyboard, security features and reliable battery. Built for daily office work.</p>
+                    <small>Trade-off: limited graphics power.</small>
+                </div>
+                <div class="type-card">
+                    <i class="fas fa-tablet-alt"></i>
+                    <h3>2-in-1</h3>
+                    <p>Touch screen that folds or detaches, so it works as a laptop or a tablet. Great for notes and drawing.</p>
+                    <small>Trade-off: usually costs more for the same power.</small>
+                </div>
+                <div class="type-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Chromebook</h3>
+                    <p>Simple, fast and cheap. Runs ChromeOS and works best with web apps and Google tools.</p>
+                    <small>Trade-off: no full Windows programs.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Glossary -->
+        <div class="content-card">
+            <h2>Specs explained</h2>
+            <dl class="glossary">
+                <div>
+                    <dt>CPU (processor)</dt>
+                    <dd>The brain of the laptop. Core i3 or Ryzen 3 for light use, i5 or Ryzen 5 for most people, i7/Ryzen 7 and above for heavy work.</dd>
+                </div>
+                <div>
+                    <dt>RAM</dt>
+                    <dd>How many things the laptop can handle at once. 8 GB is the minimum today, 16 GB is the comfortable choice.</dd>
+                </div>
+                <div>
+                    <dt>SSD vs HDD</dt>
+                    <dd>An SSD is much faster and quieter than an HDD. Always choose an SSD for the system drive.</dd>
+                </div>
+                <div>
+                    <dt>GPU (graphics)</dt>
+                    <dd>Integrated graphics are enough for study and office work. A dedicated GPU (such as NVIDIA RTX) is needed for gaming, 3D and video editing.</dd>
+                </div>
+                <div>
+                    <dt>Screen</dt>
+                    <dd>Choose Full HD at least. 14 inches is easy to carry, 15.6 inches gives more space. An IPS panel gives better colors and viewing angles.</dd>
+                </div>
+                <div>
+                    <dt>Battery</dt>
+                    <dd>Look for real-world use of 8 hours or more if you study or work away from a charger.</dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="content-card cta-card">
+            <div>
+                <h2>Already know the specs?</h2>
+                <p>Enter them and get an estimated price from the model.</p>
+            </div>
+            <a href="predict.html" class="cta-link">Predict a price <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Powered by Machine Learning <span>•</span> LaptopPrice Project</p>
+    </footer>
+
+    <script>
+        var uses = [
+            {
+                id: "study", label: "Study", icon: "fa-graduation-cap",
+                summary: "Browsing, documents, video lectures and presentations. Light weight and battery life matter more than raw power.",
+                specs: [
+                    ["CPU", "Core i3 / Ryzen 3", "Core i5 / Ryzen 5"],
+                    ["RAM", "8 GB", "16 GB"],
+                    ["Storage", "256 GB SSD", "512 GB SSD"],
+                    ["GPU", "Integrated", "Integrated"],
+                    ["Screen", "14\" Full HD", "14\" Full HD IPS"],
+                    ["Battery", "6+ hours", "8+ hours"]
+                ],
+                tip: "A 2-in-1 with a touch screen is nice if you take handwritten notes."
+            },
+            {
+                id: "programming", label: "Programming", icon: "fa-code",
+                summary: "Code editors, browsers with many tabs, and sometimes Docker or virtual machines.",
+                specs: [
+                    ["CPU", "Core i5 / Ryzen 5", "Core i7 / Ryzen 7"],
+                    ["RAM", "16 GB", "32 GB (for Docker / VMs)"],
+                    ["Storage", "512 GB SSD", "1 TB SSD"],
+                    ["GPU", "Integrated", "Integrated (dedicated for ML work)"],
+                    ["Screen", "14\" Full HD", "15.6\" Full HD or higher"],
+                    ["Keyboard", "Comfortable to type on", "Backlit, good key travel"]
+                ],
+                tip: "If you train machine learning models, a dedicated NVIDIA GPU speeds things up a lot."
+            },
+            {
+                id: "design", label: "Design & Video", icon: "fa-palette",
+                summary: "Photoshop, Premiere, After Effects and 3D tools. The screen and graphics card matter most.",
+                specs: [
+                    ["CPU", "Core i7 / Ryzen 7", "Core i7-H / Ryzen 9"],
+                    ["RAM", "16 GB", "32 GB"],
+                    ["Storage", "512 GB SSD", "1 TB SSD"],
+                    ["GPU", "RTX 3050 class", "RTX 4060 class or better"],
+                    ["Screen", "15.6\" Full HD, 100% sRGB", "QHD or 4K, wide color gamut"],
+                    ["Ports", "USB-C, HDMI", "SD card reader, Thunderbolt"]
+                ],
+                tip: "Check the screen color coverage (sRGB / DCI-P3) before you check the price."
+            },
+            {
+                id: "engineering", label: "Engineering & CAD", icon: "fa-cogs",
+                summary: "AutoCAD, SolidWorks, MATLAB and simulation. Heavy on CPU, RAM and graphics.",
+                specs: [
+                    ["CPU", "Core i7 / Ryzen 7", "Core i7-H / Ryzen 9"],
+                    ["RAM", "16 GB", "32 GB"],
+                    ["Storage", "512 GB SSD", "1 TB SSD"],
+                    ["GPU", "Dedicated, 4 GB VRAM", "RTX 4050 class or better"],
+                    ["Screen", "15.6\" Full HD", "15.6\" or 16\" QHD"],
+                    ["Cooling", "Decent fans", "Strong cooling for long sessions"]
+                ],
+                tip: "Check your software's official system requirements. Some CAD tools prefer workstation GPUs."
+            },
+            {
+                id: "gaming", label: "Gaming", icon: "fa-gamepad",
+                summary: "Modern games need a strong graphics card, a fast screen and good cooling.",
+                specs: [
+                    ["CPU", "Core i5-H / Ryzen 5", "Core i7-H / Ryzen 7"],
+                    ["RAM", "16 GB", "16-32 GB"],
+                    ["Storage", "512 GB SSD", "1 TB SSD"],
+                    ["GPU", "RTX 4050 class", "RTX 4060 class or better"],
+                    ["Screen", "15.6\" Full HD, 120 Hz", "144 Hz or higher"],
+                    ["Cooling", "Good vents", "Dual fans, tested thermals"]
+                ],
+                tip: "The graphics card matters more than the processor for most games."
+            },
+            {
+                id: "office", label: "Office & Business", icon: "fa-briefcase",
+                summary: "Email, spreadsheets, video calls and web apps. Reliability and a good keyboard come first.",
+                specs: [
+                    ["CPU", "Core i3 / Ryzen 3", "Core i5 / Ryzen 5"],
+                    ["RAM", "8 GB", "16 GB"],
+                    ["Storage", "256 GB SSD", "512 GB SSD"],
+                    ["GPU", "Integrated", "Integrated"],
+                    ["Screen", "14\" Full HD", "14\" Full HD IPS, anti-glare"],
+                    ["Extras", "Webcam, good mic", "Fingerprint reader, long battery"]
+                ],
+                tip: "Business-class models usually last longer and come with better support."
+            }
+        ];
+
+        var tabsEl = document.getElementById("use-tabs");
+        var bodyEl = document.getElementById("spec-body");
+        var summaryEl = document.getElementById("use-summary");
+        var tipEl = document.getElementById("use-tip");
+
+        function showUse(id) {
+            var use = uses.filter(function (u) { return u.id === id; })[0];
+
+            Array.prototype.forEach.call(tabsEl.children, function (btn) {
+                var active = btn.dataset.id === id;
+                btn.classList.toggle("active", active);
+                btn.setAttribute("aria-selected", active);
+            });
+
+            summaryEl.textContent = use.summary;
+            tipEl.textContent = "Tip: " + use.tip;
+            bodyEl.innerHTML = "";
+
+            use.specs.forEach(function (row) {
+                var tr = document.createElement("tr");
+                row.forEach(function (cell, i) {
+                    var td = document.createElement(i === 0 ? "th" : "td");
+                    td.textContent = cell;
+                    if (i === 0) td.scope = "row";
+                    tr.appendChild(td);
+                });
+                bodyEl.appendChild(tr);
+            });
+        }
+
+        uses.forEach(function (u) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "tab-btn";
+            btn.dataset.id = u.id;
+            btn.setAttribute("role", "tab");
+            btn.innerHTML = '<i class="fas ' + u.icon + '"></i> ' + u.label;
+            btn.addEventListener("click", function () { showUse(u.id); });
+            tabsEl.appendChild(btn);
+        });
+
+        showUse("study");
+    </script>
+</body>
+</html>
